@@ -26,4 +26,8 @@ public class CategoriaService {
 		return repo.findAll();
 	}
 	
+	public Categoria inserir(Categoria categoria) {
+		categoria.setId(null);
+		return repo.save(categoria);
+	}
 }

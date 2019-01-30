@@ -23,4 +23,13 @@ public class PedidoService {
 		return repo.findById(id);
 	}
 	
+	public void inserir(Pedido obj) {
+		obj.setId(null);
+		repo.save(obj);
+	}
+	
+	public void alterar(Pedido obj) {
+		repo.save(obj);
+	}
+	
 }

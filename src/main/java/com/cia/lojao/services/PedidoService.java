@@ -32,4 +32,10 @@ public class PedidoService {
 		repo.save(obj);
 	}
 	
+	public void excluir(Integer id) {
+		buscar(id);
+		repo.deleteById(id);
+	}
+	
+	
 }

@@ -22,6 +22,8 @@ public class ClienteDTO implements Serializable{
 	@Email(message="Email obrigatorio")
 	private String email;
 	
+	private String tipoCliente;
+	
 	public ClienteDTO() {
 		
 	}
@@ -30,6 +32,7 @@ public class ClienteDTO implements Serializable{
 		id = obj.getId();
 		nome = obj.getNome();
 		email = obj.getEmail();
+		tipoCliente = obj.getTipo().getDescricao();
 	}
 	
 
@@ -55,6 +58,14 @@ public class ClienteDTO implements Serializable{
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getTipoCliente() {
+		return tipoCliente;
+	}
+
+	public void setTipoCliente(String tipoCliente) {
+		this.tipoCliente = tipoCliente;
 	}
 
 }

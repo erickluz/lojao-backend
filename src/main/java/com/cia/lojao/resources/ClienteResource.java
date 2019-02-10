@@ -22,6 +22,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.cia.lojao.domain.Cliente;
 import com.cia.lojao.dto.ClienteDTO;
+import com.cia.lojao.dto.NewClienteDTO;
 import com.cia.lojao.services.ClienteService;
 
 @RestController
@@ -44,12 +45,10 @@ public class ClienteResource {
 		return ResponseEntity.ok().body(obj);
 	}
 
-
 	@PostMapping
-	public ResponseEntity<Void> inserir(@Valid @RequestBody Cliente obj){
-		//Cliente obj = new Cliente(objDTO.getId(), objDTO.getNome());
-		service.inserir(obj);
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+	public ResponseEntity<Void> inserir(@Valid @RequestBody NewClienteDTO obj){
+		Cliente cliente = service.fromDTO(obj);
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(cliente.getId()).toUri();
 		return ResponseEntity.created(uri).build();
 	}
 	

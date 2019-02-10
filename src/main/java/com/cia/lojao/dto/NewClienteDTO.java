@@ -2,21 +2,44 @@ package com.cia.lojao.dto;
 
 import java.io.Serializable;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.cia.lojao.services.validation.ClienteInsert;
+
+@ClienteInsert
 public class NewClienteDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message="Preenchimento obrigatorio")
+	@Length(min=5, max=120, message="O tamanho deve ser entre 5 e 120 caracteres")
 	private String nome;
+	
+	@NotEmpty(message="Preenchimento obrigatorio")
+	@Email(message="Email invalido")
 	private String email;
+	
+	@NotEmpty(message="Preenchimento obrigatorio")
 	private String cpfOuCnpj;
+	
 	private Integer tipo;
 	
+	@NotEmpty(message="Preenchimento obrigatorio")
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
 	
+	@NotEmpty(message="Preenchimento obrigatorio")
 	private String logradouro;
+	
+	@NotEmpty(message="Preenchimento obrigatorio")
 	private String numero;
+	
+	@NotEmpty(message="Preenchimento obrigatorio")
 	private String cep;
+	
 	private Integer cidadeId;
 	
 	public NewClienteDTO() {

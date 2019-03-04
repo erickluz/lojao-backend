@@ -42,6 +42,9 @@ public class NewClienteDTO implements Serializable{
 	
 	private Integer cidadeId;
 	
+	@NotEmpty
+	private String senha;
+	
 	public NewClienteDTO() {
 		
 	}
@@ -148,6 +151,14 @@ public class NewClienteDTO implements Serializable{
 
 	public void setCidadeId(Integer cidadeId) {
 		this.cidadeId = cidadeId;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	

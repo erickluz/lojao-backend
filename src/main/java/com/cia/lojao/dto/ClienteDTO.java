@@ -24,6 +24,9 @@ public class ClienteDTO implements Serializable{
 	
 	private String tipoCliente;
 	
+	@NotEmpty
+	private String senha;
+	
 	public ClienteDTO() {
 		
 	}
@@ -66,6 +69,14 @@ public class ClienteDTO implements Serializable{
 
 	public void setTipoCliente(String tipoCliente) {
 		this.tipoCliente = tipoCliente;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

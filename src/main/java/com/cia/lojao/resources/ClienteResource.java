@@ -54,7 +54,7 @@ public class ClienteResource {
 	
 	@PutMapping(value="/{id}")
 	public ResponseEntity<Void> alterar(@Valid @RequestBody ClienteDTO obj, @PathVariable Integer id){
-		Cliente cliente = new Cliente(obj.getId(), obj.getNome(), obj.getEmail(), null, null);
+		Cliente cliente = new Cliente(obj.getId(), obj.getNome(), obj.getEmail(), null, null, null);
 		cliente.setId(id);
 		cliente = service.atualizar(cliente);
 		return ResponseEntity.noContent().build();
